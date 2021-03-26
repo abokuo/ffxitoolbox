@@ -1,0 +1,39 @@
+<!--
+    vanaclock 顯示頁面
+    利用 AJAX 方法將 vanaclock 內容以指定時間載入，做到即時更新。
+    運作位置是：id 為 vanaclock 的 div container。
+    概念參考影片：
+    create Clock in jquery and PHP by Issa Abdullah
+    https://youtu.be/fxlRsyo-PZQ
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+        <title>Vana'diel Clock</title>
+        <script src="vanaclock/jquery-3.5.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                setInterval(function(){
+                    $('#vanaclock').load('vanaclock/vanaclock.php')
+                }, 1000);
+            });
+        </script>
+        <style>
+            @font-face
+            {
+                font-family: clock;
+                src : url(vanaclock/TSKirt-Regular.otf);
+            }
+            #vanaclock
+            {
+                width: 100%;
+                margin: 0 auto;
+                font-family: clock;
+                font-size: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="vanaclock"></div>
+    </body>
+</html>
